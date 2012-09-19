@@ -7,6 +7,7 @@ gem 'rails', '3.2.8'
 
 gem 'sqlite3'
 
+gem 'capybara'
 gem 'rspec-rails'
 
 
@@ -23,6 +24,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "minitest"
+gem "minitest-reporters", '>= 0.5.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
