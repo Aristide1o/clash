@@ -9,8 +9,7 @@ describe "StaticPages" do
 
     it "should have the right title" do
       visit '/static_pages/about'
-      page.should have_selector('title',
-                                :text => "About")
+      page.should have_selector('title', :text => "About")
     end
 
   end
