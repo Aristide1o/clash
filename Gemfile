@@ -10,6 +10,9 @@ gem 'sqlite3'
 gem 'capybara'
 gem 'rspec-rails'
 gem 'bootstrap-sass', '2.0.0'
+gem 'annotate', ">=2.5.0"
+gem 'devise'
+gem 'webrick', '1.3.1'
 
 
 # Gems used only for assets and not required
