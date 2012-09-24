@@ -13,6 +13,7 @@ gem 'bootstrap-sass', '2.0.0'
 gem 'annotate', ">=2.5.0"
 gem 'devise'
 gem 'webrick', '1.3.1'
+gem 'factory_girl_rails', '1.4.0'
 
 
 # Gems used only for assets and not required
