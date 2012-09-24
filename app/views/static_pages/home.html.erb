@@ -3,5 +3,9 @@
   <h2>
     Where Champions Shine
   </h2>
-  <%= link_to "SIGN UP NOW", new_user_registration_path, class: "btn btn-large btn-primary" %>
+  <% if user_signed_in? %>
+    <!--TODO: ADD SOME COOL CONTENT FOR SIGNED IN USER-->
+  <% else %>
+    <%= link_to "SIGN UP NOW", new_user_registration_path, class: "btn btn-large btn-primary" %>
+  <% end %>
 </div>
