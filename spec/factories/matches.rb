@@ -2,9 +2,10 @@
 
 FactoryGirl.define do
   factory :match do
-    contender1 "MyString"
-    contender2 "MyString"
+    contender1 "beijing"
+    contender2 "mumbai"
+    winner "beijing"
     tournament_id 1
-    bracket_id ""
+    bracket_id 10
   end
 end

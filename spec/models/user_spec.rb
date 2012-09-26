@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   before (:each) do
-     @user = User.new(username: "Example User", email: "user@example.com")
+     @user = FactoryGirl.build(:user)
   end
 
   subject { @user }
