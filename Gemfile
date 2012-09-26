@@ -14,6 +14,7 @@ gem 'annotate', ">=2.5.0"
 gem 'devise'
 gem 'webrick', '1.3.1'
 gem 'factory_girl_rails', '1.4.0'
+gem 'capybara', :group => :test
 
 
 # Gems used only for assets and not required

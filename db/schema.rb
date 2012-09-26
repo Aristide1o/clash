@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120924011655) do
+ActiveRecord::Schema.define(:version => 20120924221132) do
+
+  create_table "matches", :force => true do |t|
+    t.string   "contender1"
+    t.string   "contender2"
+    t.integer  "tournament_id"
+    t.integer  "bracket_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -26,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20120924011655) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "username"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
