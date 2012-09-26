@@ -1,5 +1,7 @@
 Clash::Application.routes.draw do
 
+  resources :brackets
+
   resources :tournaments
 
   devise_for :users
