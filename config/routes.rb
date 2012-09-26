@@ -1,5 +1,7 @@
 Clash::Application.routes.draw do
 
+  resources :tournaments
+
   devise_for :users
 
   match '/help', to: 'static_pages#help'
