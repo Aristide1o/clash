@@ -26,6 +26,9 @@ class BracketsController < ApplicationController
   def new
     @bracket = Bracket.new
 
+    @tourneys = Tournament.all
+
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @bracket }
@@ -41,15 +44,19 @@ class BracketsController < ApplicationController
   # POST /brackets.json
   def create
     @bracket = Bracket.new(params[:bracket])
+    @bracket.user_id = current_user.id
+
 
     respond_to do |format|
-      if @bracket.save
-        format.html { redirect_to @bracket, notice: 'Bracket was successfully created.' }
-        format.json { render json: @bracket, status: :created, location: @bracket }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @bracket.errors, status: :unprocessable_entity }
-      end
+      format.js
+      #if @bracket.save
+      #  format.html { redirect_to @bracket, notice: 'Bracket was successfully created.' }
+      #  format.json { render json: @bracket, status: :created, location: @bracket }
+      #  format.js
+      #else
+      #  format.html { render action: "new" }
+      #  format.json { render json: @bracket.errors, status: :unprocessable_entity }
+      #end
     end
   end
 

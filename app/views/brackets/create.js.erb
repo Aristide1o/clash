@@ -1,0 +1,25 @@
+$("#bracket_doc").html("" +
+  "<div id=\"bracket_header\" class=\"center\">" +
+      "<h1 style=\"float:center; display: inline\"><%= @bracket.name %></h1>" +
+      "<h2 style=\"float:center; display: inline\"> Of <%= @bracket.tournament.name %></h2>" +
+      "<hr style=\"clear:both;\"\/>" +
+  "</div>" +
+  "<div id='bracket_body'>" +
+      "<%= escape_javascript(render('match_forms')) %>" +
+  "</div>"
+)
+
+<% @tourn_match_count = @bracket.tournament.matchs.count %>
+<% @i = 0 %>
+<% while @i < @tourn_match_count do %>
+    $("#br_row<%= @i * 4 + 1 %>_col1").html("" +
+            "<span class=\"label label-info\"><%= @bracket.tournament.matchs[@i].contender1 %></span>"
+    )
+    $("#br_row<%= @i * 4 + 3 %>_col1").html("" +
+            "<span class=\"label label-info\"><%= @bracket.tournament.matchs[@i].contender2 %></span>"
+    )
+    $("#br_row<%= @i * 4 + 4 %>_col1").html("" +
+            "<hr/>"
+    )
+    <% @i += 1 %>
+<% end %>

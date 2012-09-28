@@ -4,10 +4,21 @@
       <aside class="span4">
         <section>
           <h1>
-            <%= gravatar_for current_user %>
+            <%= gravatar_for current_user %> </br>
             <%= current_user.username %>
           </h1>
         </section>
+      </aside>
+      <aside class="span6">
+          <h1>
+            Saved Brackets
+          </h1>
+          <ul class="nav nav-tabs nav-stacked" style="list-style-type: none; ">
+            <% current_user.brackets.each do |bracket|%>
+                <li class="span5"><%= link_to bracket.name, bracket %></li></br>
+            <% end %>
+          </ul>
+        <%= link_to "ADD BRACKET", new_bracket_path, class: "btn btn-primary" %>
       </aside>
     </div>
   <% else %>
@@ -15,6 +26,7 @@
     <h2>
       Where Champions Shine
     </h2>
+
     <%= link_to "SIGN UP NOW", new_user_registration_path, class: "btn btn-large btn-primary" %>
   <% end %>
 </div>
