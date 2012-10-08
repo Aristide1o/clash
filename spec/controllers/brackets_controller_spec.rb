@@ -65,42 +65,42 @@ describe BracketsController do
     end
   end
 
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new Bracket" do
-        expect {
-          post :create, {:bracket => valid_attributes}, valid_session
-        }.to change(Bracket, :count).by(1)
-      end
-
-      it "assigns a newly created bracket as @bracket" do
-        post :create, {:bracket => valid_attributes}, valid_session
-        assigns(:bracket).should be_a(Bracket)
-        assigns(:bracket).should be_persisted
-      end
-
-      it "redirects to the created bracket" do
-        post :create, {:bracket => valid_attributes}, valid_session
-        response.should redirect_to(Bracket.last)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved bracket as @bracket" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Bracket.any_instance.stub(:save).and_return(false)
-        post :create, {:bracket => {}}, valid_session
-        assigns(:bracket).should be_a_new(Bracket)
-      end
-
-      it "re-renders the 'new' template" do
-        # Trigger the behavior that occurs when invalid params are submitted
-        Bracket.any_instance.stub(:save).and_return(false)
-        post :create, {:bracket => {}}, valid_session
-        response.should render_template("new")
-      end
-    end
-  end
+  #describe "POST create" do
+  #  describe "with valid params" do
+  #    it "creates a new Bracket" do
+  #      expect {
+  #        post :create, {:bracket => valid_attributes}, valid_session
+  #      }.to change(Bracket, :count).by(1)
+  #    end
+  #
+  #    it "assigns a newly created bracket as @bracket" do
+  #      post :create, {:bracket => valid_attributes}, valid_session
+  #      assigns(:bracket).should be_a(Bracket)
+  #      assigns(:bracket).should be_persisted
+  #    end
+  #
+  #    it "redirects to the created bracket" do
+  #      post :create, {:bracket => valid_attributes}, valid_session
+  #      response.should redirect_to(Bracket.last)
+  #    end
+  #  end
+  #
+  #  describe "with invalid params" do
+  #    it "assigns a newly created but unsaved bracket as @bracket" do
+  #      # Trigger the behavior that occurs when invalid params are submitted
+  #      Bracket.any_instance.stub(:save).and_return(false)
+  #      post :create, {:bracket => {}}, valid_session
+  #      assigns(:bracket).should be_a_new(Bracket)
+  #    end
+  #
+  #    it "re-renders the 'new' template" do
+  #      # Trigger the behavior that occurs when invalid params are submitted
+  #      Bracket.any_instance.stub(:save).and_return(false)
+  #      post :create, {:bracket => {}}, valid_session
+  #      response.should render_template("new")
+  #    end
+  #  end
+  #end
 
   describe "PUT update" do
     describe "with valid params" do

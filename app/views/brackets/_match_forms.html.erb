@@ -1,16 +1,16 @@
 <% @grid_row_num = ((@bracket.tournament.matchs.count * 4 ) - 1) %>
-<% @grid_col_num = (Math.log2(@bracket.tournament.matchs.count) + 2) %>
-<% @grid_col_width = (12 / @grid_col_num).to_i %>
-<% @i = 1 %>
-<% while @i <= @grid_row_num do %>
-    <% @j = 1 %>
-    <div class="row-fluid">
-        <% while @j <= @grid_col_num do %>
-            <div id="br_row<%= @i %>_col<%= @j %>" class="span<%= @grid_col_width %>">
-              <span class="label">Test</span>
-            </div>
-        <% @j += 1 %>
-        <% end %>
+      <% @grid_col_num = (Math.log2(@bracket.tournament.matchs.count) + 2) %>
+      <% @grid_col_width = (12 / @grid_col_num).to_i %>
+      <% @i = 1 %>
+      <% while @i <= @grid_row_num do %>
+          <% @j = 1 %>
+          <div class="row-fluid">
+            <% while @j <= @grid_col_num do %>
+                <div id="br_row<%= @i %>_col<%= @j %>" class="span<%= @grid_col_width %>">
+                  <span class="label">Test</span>
+                </div>
+                <% @j += 1 %>
+            <% end %>
     </div>
     <% @i += 1 %>
 <% end %>

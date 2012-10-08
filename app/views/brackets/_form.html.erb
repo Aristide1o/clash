@@ -1,3 +1,4 @@
+<div id="bracket_doc">
 <%= form_for(@bracket, remote: true) do |f| %>
   <% if @bracket.errors.any? %>
     <div id="error_explanation">
@@ -11,7 +12,6 @@
     </div>
   <% end %>
 
-  <div id="bracket_doc">
       <div class="center field">
         <%= f.text_field :name, placeholder: "Name it!" %>
       </div>
@@ -30,7 +30,7 @@
 
 
       <div class="actions">
-        <%= f.submit %>
+        <%= f.submit "Create Bracket", :class => 'btn btn-primary' %>
       </div>
-  </div>
 <% end %>
+</div>

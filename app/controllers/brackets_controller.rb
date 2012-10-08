@@ -18,12 +18,14 @@ class BracketsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @bracket }
+      format.xml { render xml: @bracket }
     end
   end
 
   # GET /brackets/new
   # GET /brackets/new.json
   def new
+    session[:bracket_params] ||=  {}
     @bracket = Bracket.new
 
     @tourneys = Tournament.all
@@ -43,20 +45,30 @@ class BracketsController < ApplicationController
   # POST /brackets
   # POST /brackets.json
   def create
-    @bracket = Bracket.new(params[:bracket])
+    session[:bracket_params].deep_merge!(params[:bracket]) if params[:bracket]
+    @bracket = Bracket.new(session[:bracket_params])
     @bracket.user_id = current_user.id
-
 
     respond_to do |format|
       format.js
-      #if @bracket.save
-      #  format.html { redirect_to @bracket, notice: 'Bracket was successfully created.' }
-      #  format.json { render json: @bracket, status: :created, location: @bracket }
-      #  format.js
-      #else
-      #  format.html { render action: "new" }
-      #  format.json { render json: @bracket.errors, status: :unprocessable_entity }
-      #end
+
+      format.html {
+        if @bracket.save
+          redirect_to @bracket, notice: 'Bracket was successfully created.'
+          session[:bracket_params] = nil
+        else
+          render action: "new"
+        end
+      }
+      format.json {
+        if @bracket.save
+          render json: @bracket, status: :created, location: @bracket
+          session[:bracket_params] = nil
+        else
+          render json: @bracket.errors, status: :unprocessable_entity
+        end
+      }
+
     end
   end
 
